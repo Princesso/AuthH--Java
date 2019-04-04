@@ -2,12 +2,17 @@ package com.authorshaven.authorshaven.service;
 
 import com.authorshaven.authorshaven.dao.UserDao;
 import com.authorshaven.authorshaven.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService {
 
     private final UserDao userDao;
 
-    public UserService(UserDao userDao) {
+    @Autowired
+    public UserService(@Qualifier("FakeDao") UserDao userDao) {
         this.userDao = userDao;
     }
 
