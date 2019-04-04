@@ -3,10 +3,9 @@ package com.authorshaven.authorshaven.api;
 import com.authorshaven.authorshaven.model.User;
 import com.authorshaven.authorshaven.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequestMapping("api/v1/user")
 @RestController
@@ -22,5 +21,10 @@ public class UserController {
     @PostMapping
     public void addUser(@RequestBody User user) {
         userService.addUser(user);
+    }
+
+    @GetMapping
+    public List<User> getAllUsers () {
+        return userService.getAllUsers();
     }
 }
